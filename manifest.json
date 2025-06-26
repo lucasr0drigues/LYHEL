@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "LYHEL",
+    "version": "1.0",
+    "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+    ],
+    "description": "A simple Youtube Helper to customize how many videos you see per row",
+    "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+    },
+    "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+    ]
+  }

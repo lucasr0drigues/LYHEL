@@ -1,0 +1,41 @@
+/* only target the rich-grid under ytd-browse (homepage) */
+ytd-browse ytd-rich-grid-renderer #contents {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+ytd-browse ytd-rich-item-renderer {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* only thumbnails inside the same rich-grid */
+ytd-browse ytd-rich-grid-renderer ytd-thumbnail,
+ytd-browse ytd-rich-grid-renderer ytd-thumbnail > yt-img-shadow {
+  width: 100% !important;
+  aspect-ratio: 16/9 !important;
+  overflow: hidden !important;
+  display: block !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+ytd-browse ytd-rich-grid-renderer ytd-thumbnail > yt-img-shadow img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* hide shelf posts */
+ytd-browse ytd-rich-grid-renderer
+  ytd-rich-item-renderer:has(ytd-rich-shelf-renderer) {
+  display: none !important;
+}
